@@ -1,0 +1,6 @@
+--colour
+--format specdoc:spec/specdoc.report
+--format failing_examples:spec/failing_examples.report
+--format failing_example_groups:spec/failing_example_groups.report
+--format progress:spec/progress.report
+--format specdoc
