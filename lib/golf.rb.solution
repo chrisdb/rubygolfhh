@@ -1,0 +1,47 @@
+class Golf
+  class << self
+    def hole1 p
+      p.inject :*
+    end
+
+    def hole2 p 
+      #x ="#{p[0]}"; puts x if x == x.reverse until x.succ! == "#{p[1]}"
+      (p[0]..p[1]).find_all{|n| n.to_s == n.to_s.reverse}
+    end
+
+    def hole3 p
+      a = p.downcase
+      a == a.reverse
+    end
+  
+    def hole4 p
+      p.map { |t| t.sub(/(man.*)/,'hat(\1)').sub(/(dog.*)\)/,'\1(bone))').sub(/cat/,'dead') }
+    end
+    
+    def hole5 p
+      (1..4).map{|i| p.each_cons(i).to_a}.inject :+
+    end
+  
+    def hole6 p
+      (1..p).map{ |i|
+        s="fizz" if i % 3 == 0
+        s="#{s}buzz" if i % 5 == 0
+        s || i
+      }
+    end
+    
+    def hole7 p
+      i = -1
+      m = []
+      p.map{ |j| p[i] + 1 != p[i += 1] ? m << [j] : (m[-1] << j if p[i] + 1 != p[i + 1]) }
+      m.map{ |i| i * "-" }
+    end
+      
+    def hole8 p
+      b = [1,1]
+      (2..p-1).map {|i| b << b[-2] + b[-1] }
+      b
+    end
+  
+  end
+end
